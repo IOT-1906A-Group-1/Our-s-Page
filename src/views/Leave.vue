@@ -76,14 +76,18 @@
                 />
             </a-descriptions-item>
             <a-descriptions-item label="附件" :span="3">
+                <!-- http://localhost:21231/FileUpload -->
                 <a-upload
-                    action="http://localhost:21231/FileUpload"
                     v-model:file-list="fileList"
-                    :multiple="false"
+                    name="file"
+                    :multiple="true"
+                    action="http://localhost:21231/FileUpload"
+                    :headers="headers"
+                    @change="handleChange"
                 >
                     <a-button>
                         <upload-outlined></upload-outlined>
-                        上传文件
+                        Click to Upload
                     </a-button>
                 </a-upload>
             </a-descriptions-item>
@@ -106,6 +110,7 @@
 </template>
 
 <script>
+import { message } from "ant-design-vue";
 import calendarFormatter from "../common/dateChange.js";
 import { ref } from "vue";
 export default {
@@ -122,9 +127,15 @@ export default {
             return startValue.valueOf() > endValue.value.valueOf();
         };
 
-        const handleChange = ({ file, fileList }) => {
-            if (file.status !== "uploading") {
-                console.log(file, fileList);
+        const handleChange = (info) => {
+            if (info.file.status !== "uploading") {
+                console.log(info.file, info.fileList);
+            }
+
+            if (info.file.status === "done") {
+                message.success(`${info.file.name} file uploaded successfully`);
+            } else if (info.file.status === "error") {
+                message.error(`${info.file.name} file upload failed.`);
             }
         };
 
@@ -146,6 +157,9 @@ export default {
             endOpen.value = open;
         };
         return {
+            headers: {
+                authorization: "authorization-text",
+            },
             fileList,
             handleChange,
             startValue,
