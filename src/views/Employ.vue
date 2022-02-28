@@ -221,11 +221,7 @@ export default {
         };
     },
     methods: {
-        submit() {
-            //console.log("1");
-            // this.employData=JSON.stringify();
-            // this.employeeDetail=JSON.stringify(this.employeeDetail);
-            //this.formState.Dates=this.formState.Dates._i;
+        OnSubmit() {
             var d = new Date(this.EmployData.employ_Hdate._d);
             var date =
                 d.getFullYear() +
@@ -253,7 +249,7 @@ export default {
             this.EmployAll.employData = JSON.stringify(this.EmployData);
             this.EmployAll.employeeDetail = JSON.stringify(this.EmployeeDetail);
             console.log(this.EmployAll);
-            this.$axios({
+            this.$ajax({
                 url: "http://localhost:21231/api/startemploy",
                 method: "post",
                 data: this.EmployAll,
