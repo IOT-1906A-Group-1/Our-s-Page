@@ -229,18 +229,7 @@ export default {
             }).then((r) => {
                 if (r.data > 0) {
                     this.$message.success("提交成功！");
-                    this.leaveData.id = 0;
-                    this.leaveData.taskId = 0;
-                    this.leaveData.applyPeople = "";
-                    this.leaveData.applyDepartment = "0";
-                    this.leaveData.applyDate = "";
-                    this.leaveData.startDate = "";
-                    this.leaveData.endDate = "";
-                    this.leaveData.leaveType = "事假";
-                    this.leaveData.leaveDays = "0天0小时";
-                    this.leaveData.leaveReason = "";
-                    this.leaveData.fileName = "";
-                    this.leaveData.remarks = "";
+                    location.href = "Leave";
                 } else {
                     this.$message.error("提交失败！");
                 }

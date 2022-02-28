@@ -54,648 +54,53 @@
         <div style="width: 1450px; height: 190px; background-color: white">
             <div style="font-weight: bold; font-size: 16px">详细信息</div>
             <div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 140px;
-                        background-color: white;
-                        height: 60px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
-                    序号
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 130px;
-                        background-color: white;
-                        height: 60px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
-                    岗位
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 100px;
-                        background-color: white;
-                        height: 60px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
-                    上年已有
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 972px;
-                        background-color: white;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
-                    本年预计增加
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 108px;
-                        background-color: white;
-                        height: 60px;
-                        border: 1px solid #f0f0f0;
-                        float: right;
-                    "
-                >
-                    合计
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    1月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    2月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    3月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    4月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    5月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    6月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    7月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    8月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    9月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    10月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    11月份
-                </div>
-                <div
-                    style="
-                        text-align: center;
-                        width: 81px;
-                        height: 30px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    12月份
+                <div class="xuhao">序号</div>
+                <div class="gangwei">岗位</div>
+                <div class="shangnian">上年已有</div>
+                <div class="bennian">本年预计增加</div>
+                <div class="heji">合计</div>
+                <div class="month" v-for="item in month" :key="item">
+                    {{ item }}月份
                 </div>
             </div>
             <div>
-                <div
-                    style="
-                        width: 140px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
+                <div class="xuhaoInput">
                     <span style="font-weight: bold">1</span>
                 </div>
-                <div
-                    style="
-                        width: 130px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
+                <div class="gangweiInput">
                     <input
                         type="text"
                         v-model="PlanInfoDetail.info_Position"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
+                        class="textInput"
                     />
                 </div>
-                <div
-                    style="
-                        width: 100px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                >
+                <div class="shangnianInput">
                     <input
                         type="text"
                         v-model="PlanInfoDetail.info_LastYears_Has"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
+                        class="textInput"
                     />
                 </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
+                <div class="monthInput" v-for="item in month" :key="item">
                     <input
                         type="text"
                         v-model="PlanInfoDetail.info_January"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
+                        class="textInput"
                     />
                 </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_February"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_March"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_April"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_May"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_June"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_July"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_August"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_September"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_October"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_November"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                >
-                    <input
-                        type="text"
-                        v-model="PlanInfoDetail.info_December"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
-                    />
-                </div>
-                <div
-                    style="
-                        width: 108px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: right;
-                    "
-                >
+                <div class="hejiInput">
                     <input
                         type="text"
                         v-model="PlanInfoDetail.info_Sum"
-                        style="
-                            border: 0px solid white;
-                            width: 100%;
-                            height: 100%;
-                        "
+                        class="textInput"
                     />
                 </div>
             </div>
             <div>
-                <div
-                    style="
-                        width: 270px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                        text-align: right;
-                    "
-                >
-                    合计:
-                </div>
-                <div
-                    style="
-                        width: 100px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 81px;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        background-color: white;
-                        float: left;
-                    "
-                ></div>
-                <div
-                    style="
-                        width: 108px;
-                        background-color: white;
-                        height: 40px;
-                        border: 1px solid #f0f0f0;
-                        float: right;
-                    "
-                ></div>
+                <div class="hejiText">合计:</div>
+                <div class="shangnianhejiInput"></div>
+                <div class="monthInput" v-for="item in month" :key="item"></div>
+                <div class="hejihejiInput"></div>
             </div>
         </div>
 
@@ -721,6 +126,7 @@
 export default {
     data() {
         return {
+            month: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             PlanData: {
                 plan_People: "", //制表人
                 plan_CreateTime: "", //制表时间
@@ -793,3 +199,118 @@ export default {
     },
 };
 </script>
+
+
+
+<style scoped>
+.xuhao {
+    text-align: center;
+    width: 140px;
+    background-color: white;
+    height: 60px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.gangwei {
+    text-align: center;
+    width: 130px;
+    background-color: white;
+    height: 60px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.shangnian {
+    text-align: center;
+    width: 100px;
+    background-color: white;
+    height: 60px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.bennian {
+    text-align: center;
+    width: 972px;
+    background-color: white;
+    height: 30px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.heji {
+    text-align: center;
+    width: 108px;
+    background-color: white;
+    height: 60px;
+    border: 1px solid #f0f0f0;
+    float: right;
+}
+.month {
+    text-align: center;
+    width: 81px;
+    height: 30px;
+    border: 1px solid #f0f0f0;
+    background-color: white;
+    float: left;
+}
+.xuhaoInput {
+    width: 140px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.gangweiInput {
+    width: 130px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.shangnianInput {
+    width: 100px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.monthInput {
+    width: 81px;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    background-color: white;
+    float: left;
+}
+.textInput {
+    border: 0px solid white;
+    width: 100%;
+    height: 100%;
+}
+.hejiInput {
+    width: 108px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: right;
+}
+.hejiText {
+    width: 270px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: left;
+    text-align: right;
+}
+.shangnianhejiInput {
+    width: 100px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: left;
+}
+.hejihejiInput {
+    width: 108px;
+    background-color: white;
+    height: 40px;
+    border: 1px solid #f0f0f0;
+    float: right;
+}
+</style>
