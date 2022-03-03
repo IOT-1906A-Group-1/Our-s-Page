@@ -9,12 +9,20 @@ import Employ from '../views/Employ.vue'
 import Leave from '../views/Leave.vue'
 import Quit from '../views/Quit.vue'
 import CreateApply from '../views/CreateApply.vue'
+import Pending from '../views/Pending.vue'
+import LeaveProcessShow from '../views/LeaveProcessShow.vue'
+import employShow from '../views/employShow.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/employShow',
+        name: 'employShow',
+        component: employShow
     },
     {
         path: '/Login',
@@ -47,6 +55,11 @@ const routes = [
         component: Quit
     },
     {
+        path: '/LeaveProcessShow',
+        name: 'LeaveProcessShow',
+        component: LeaveProcessShow
+    },
+    {
         path: '/ViewMaster',
         name: 'ViewMaster',
         component: ViewMaster,
@@ -60,6 +73,11 @@ const routes = [
                 path: '/Workbench',
                 name: 'Workbench',
                 component: Workbench
+            },
+            {
+                path: '/Pending',
+                name: 'Pending',
+                component: Pending
             },
         ]
     },
