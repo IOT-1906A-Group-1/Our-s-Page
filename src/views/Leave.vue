@@ -2,16 +2,10 @@
     <div style="width: 1000px; height: 650px">
         <a-descriptions title="基础信息" bordered size="small">
             <a-descriptions-item label="申请人">
-                <a-input
-                    v-model:value="leaveData.applyPeople"
-                    placeholder="请输入申请人"
-                />
+                <a-input disabled v-model:value="leaveData.applyPeople" />
             </a-descriptions-item>
             <a-descriptions-item label="申请部门" :span="2">
-                <a-input
-                    v-model:value="leaveData.applyDepartment"
-                    placeholder="请输入申请部门"
-                />
+                <a-input disabled v-model:value="leaveData.applyDepartment" />
             </a-descriptions-item>
             <a-descriptions-item label="申请时间">
                 <a-date-picker
@@ -76,7 +70,6 @@
                 />
             </a-descriptions-item>
             <a-descriptions-item label="附件" :span="3">
-                <!-- http://localhost:21231/FileUpload -->
                 <a-upload
                     v-model:file-list="fileList"
                     name="file"
@@ -174,7 +167,7 @@ export default {
             leave: {
                 action: "提交",
                 bpmUser: "杨泽霖",
-                bpmUserPass: "",
+                bpmUserPass: "123",
                 fullName: "杨泽霖",
                 processName: "LeaveProcess",
                 leaveData: "",
@@ -187,6 +180,7 @@ export default {
                 applyDate: "",
                 startDate: "",
                 endDate: "",
+                leaveDay: 0,
                 leaveType: "事假",
                 leaveDays: "0天0小时",
                 leaveReason: "",
@@ -206,13 +200,17 @@ export default {
             //中秋
             timeN_08_12: "",
             timeN_08_15: "",
+            ousData: [],
         };
     },
     mounted() {
         this.getNongDate();
+        this.GetUsersRole();
     },
     methods: {
         OnSubmit() {
+            let index = this.leaveData.leaveDays.indexOf("天");
+            this.leaveData.leaveDay = this.leaveData.leaveDays.substr(0, index);
             var date = new Date(this.leaveData.applyDate._d);
             this.leaveData.applyDate =
                 date.getFullYear() +
@@ -247,6 +245,16 @@ export default {
                 } else {
                     this.$message.error("提交失败！");
                 }
+            });
+        },
+        GetUsersRole() {
+            let name = window.sessionStorage["userName"];
+            this.$ajax({
+                url: "http://localhost:21231/GetUsersRole?name=" + name,
+                method: "get",
+            }).then((r) => {
+                this.leaveData.applyDepartment = r.data;
+                this.leaveData.applyPeople = window.sessionStorage["userName"];
             });
         },
         DateChange() {

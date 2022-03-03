@@ -50,7 +50,7 @@
                         <a-menu-item @click="JumpToCreateApply" key="1"
                             >发起申请</a-menu-item
                         >
-                        <a-menu-item @click="JumpToHRPage" key="2"
+                        <a-menu-item @click="JumpToPending" key="2"
                             >待处理申请</a-menu-item
                         >
                         <a-menu-item @click="JumpToEmploy" key="3"
@@ -194,8 +194,8 @@ export default {
         JumpToCreateApply() {
             this.$router.push({ path: "CreateApply", query: { sk: "1" } });
         },
-        JumpToHRPage() {
-            this.$router.push({ path: "HRPage", query: { sk: "2" } });
+        JumpToPending() {
+            this.$router.push({ path: "Pending", query: { sk: "2" } });
         },
         JumpToEmploy() {
             this.$router.push({ path: "Employ", query: { sk: "3" } });

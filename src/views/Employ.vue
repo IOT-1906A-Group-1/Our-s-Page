@@ -121,26 +121,19 @@
                 />
             </a-descriptions-item>
         </a-descriptions>
+        <!-- 标题 -->
         <a-descriptions title="员工亲属详细信息" bordered size="small">
-            <a-descriptions-item label="亲属姓名" :span="2">
-                <a-input
-                    v-model:value="EmployeeDetail.employee_Name"
-                    placeholder="Basic usage"
-                />
-            </a-descriptions-item>
-            <a-descriptions-item label="与本人关系" :span="2">
-                <a-input
-                    v-model:value="EmployeeDetail.employee_Relation"
-                    placeholder="Basic usage"
-                />
-            </a-descriptions-item>
-            <a-descriptions-item label="亲属在公司任何部门工作、任何职务">
-                <a-input
-                    v-model:value="EmployeeDetail.employee_Post"
-                    placeholder="Basic usage"
-                />
-            </a-descriptions-item>
         </a-descriptions>
+        <!-- 表格 -->
+        <a-table
+            :dataSource="dataSource"
+            :columns="columns"
+            :scroll="scroll"
+            :pagination="false"
+        /><!-- 表格 dataSource指定数据源，columns指定列名，scroll指定宽高，pagination是否开启分页器-->
+        <a-button :size="large" style="width: 1350px" @click="OpenModal"
+            >新增</a-button
+        ><!-- 按钮调用打开对话框 -->
         <a-descriptions title="备注" bordered size="small">
             <a-descriptions-item>
                 <a-textarea v-model:value="Remark" showCount :maxlength="100" />
@@ -172,6 +165,21 @@
             提交
         </a-button>
     </div>
+    <!-- 对话框 -->
+    <a-modal v-model:visible="visible" title="新增亲属" :footer="null"
+        ><!-- footer指定对话框页脚按钮 -->
+        亲属姓名：<a-input
+            v-model:value="rowData.name"
+        /><br /><!-- 输入亲属姓名 -->
+        与本人关系：<a-input
+            v-model:value="rowData.relationship"
+        /><br /><!-- 输入与本人关系 -->
+        亲属在公司的职务：<a-input
+            v-model:value="rowData.post"
+        /><br /><br /><!-- 输入亲属在公司的职务 -->
+        <a-button @click="OnSubmitAddRow" type="primary">提交</a-button>
+    </a-modal>
+    <!-- 对话框 -->
 </template>
 <script>
 // import moment from 'moment';
@@ -180,6 +188,27 @@ export default {
     data() {
         //const dateFormat = 'YYYY/MM/DD';
         return {
+            visible: false, //对话框访问属性
+            scroll: { x: 3 | true, y: 100 }, //表格宽高
+            dataSource: [], //数据源
+            columns: [
+                {
+                    title: "亲属姓名",
+                    dataIndex: "name",
+                    key: "name",
+                },
+                {
+                    title: "与本人关系",
+                    dataIndex: "relationship",
+                    key: "relationship",
+                },
+                {
+                    title: "亲属在公司的职务",
+                    dataIndex: "post",
+                    key: "post",
+                },
+            ], //表格列名
+            rowData: { key: 0, name: "", relationship: "", post: "" }, //需要添加的数据
             EmployData: {
                 employ_Section: "",
                 employ_Hdate: "",
@@ -210,7 +239,7 @@ export default {
                 //流程提交
                 action: "提交",
                 bpmUser: "冯俊杰",
-                bpmUserPass: "",
+                bpmUserPass: "123",
                 fullName: "冯俊杰",
                 processName: "Employ",
                 employData: "",
@@ -221,6 +250,19 @@ export default {
         };
     },
     methods: {
+        //打开对话框
+        OpenModal() {
+            this.visible = true;
+        },
+        //提交添加行
+        OnSubmitAddRow() {
+            //每次添加前让key自增1
+            this.rowData.key += 1;
+            //追加行
+            this.dataSource.push(this.rowData);
+            //关闭对话框
+            this.visible = false;
+        },
         OnSubmit() {
             var d = new Date(this.EmployData.employ_Hdate._d);
             var date =
@@ -255,9 +297,9 @@ export default {
                 data: this.EmployAll,
             }).then((res) => {
                 if (res.data > 0) {
-                    this.$message("提交成功");
+                    this.$message.success("提交成功");
                 } else {
-                    this.$message("提交失败");
+                    this.$message.error("提交失败");
                 }
             });
         },
